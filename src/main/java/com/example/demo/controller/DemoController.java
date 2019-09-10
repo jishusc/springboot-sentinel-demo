@@ -25,10 +25,13 @@ public class DemoController {
 	@GetMapping("/helloDelay/{delay}")
 	public String helloDelay(@PathVariable("delay") int delay) {
 		try {
+			delay = delay / 2 + (int) (Math.random() * delay / 2);
 			Thread.sleep(delay);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		return "delayed " + delay + "ms";
 	}
+	
+
 }
