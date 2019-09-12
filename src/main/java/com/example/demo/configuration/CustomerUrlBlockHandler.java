@@ -44,6 +44,7 @@ public class CustomerUrlBlockHandler implements UrlBlockHandler {
 	}
 	
     private static void writeDefaultBlockedPage(HttpServletResponse response) throws IOException {
+    	response.setStatus(503);
     	response.setHeader("Content-Type", "text/plain;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.print(DEFAULT_BLOCK_MSG);
