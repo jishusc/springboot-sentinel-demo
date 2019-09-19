@@ -3,7 +3,6 @@ package com.example.demo.configuration;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,9 +14,8 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.util.StringUtil;
 
 /**
-  *  自定义限流处理逻辑，可以参考默认实现类：DefaultUrlBlockHandler
-  *  可以返回指定数据或者跳转到指定页面
- * @author Administrator
+ * 自定义限流处理逻辑，可以参考默认实现类：DefaultUrlBlockHandler 可以返回指定数据或者跳转到指定页面
+ * 
  *
  */
 @Component
@@ -44,6 +42,7 @@ public class CustomerUrlBlockHandler implements UrlBlockHandler {
 	}
 	
     private static void writeDefaultBlockedPage(HttpServletResponse response) throws IOException {
+    	//自定义返回 503 Service Unavailable
     	response.setStatus(503);
     	response.setHeader("Content-Type", "text/plain;charset=UTF-8");
         PrintWriter out = response.getWriter();

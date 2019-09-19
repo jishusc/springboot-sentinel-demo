@@ -12,26 +12,19 @@ public class DemoController {
 		return "index";
 	}
 
-	@GetMapping("/hello")
-	public String hello() {
-		return "hello";
+	/**
+	 * restful风格接口接入sentinel需要做url清洗
+	 * 
+	 * @param employeeId
+	 * @return
+	 */
+	@GetMapping("/basicInfo/searchEmployeeById/{employeeId}")
+	public String searchEmployeeById(@PathVariable("employeeId") String employeeId) {
+		return "employeeId:" + employeeId;
 	}
 
-	@GetMapping("/hello1")
-	public String hello1() {
-		return "hello1";
+	@GetMapping("/basicInfo/searchCompanyById")
+	public String searchEmployeeById2(String companyId) {
+		return "companyId:" + companyId;
 	}
-	
-	@GetMapping("/helloDelay/{delay}")
-	public String helloDelay(@PathVariable("delay") int delay) {
-		try {
-			delay = delay / 2 + (int) (Math.random() * delay / 2);
-			Thread.sleep(delay);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		return "delayed " + delay + "ms";
-	}
-	
-
 }
