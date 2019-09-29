@@ -26,7 +26,7 @@
 		<dependency>
 			<groupId>com.alibaba.csp</groupId>
 			<artifactId>sentinel-transport-simple-http</artifactId>
-			<version>${sentinel.transport.simple.http.sto}</version><!--$NO-MVN-MAN-VER$ -->
+			<version>${sentinel.transport.simple.http.sto}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>com.alibaba.csp</groupId>
